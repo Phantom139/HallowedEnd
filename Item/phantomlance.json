@@ -12,13 +12,13 @@
     "useTime": 20,
     "useAnimation": 20,
     "value": [99,99,99,99],
-    "knockback": 6.0,
+    "knockback": 45.0,
     "rare": 8,
     "toolTip": "The ultimate weapon, only for those who can use it.",
     "recipes": [
         {
             "items": [
-                "1 Wood"
+                "0 Wood"
             ],
             "tiles": [
                 "Work Bench"

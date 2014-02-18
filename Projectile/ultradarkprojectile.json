@@ -1,0 +1,12 @@
+{
+   "size": [10,10],
+   "aiStyle": 24,
+   "timeLeft": 300,
+   "damage": 50,
+   "friendly": true,
+   "type": -1,
+   "hide": false,
+   "magic": true,
+   "tileCollide": true,
+   "ignoreWater": true
+}
