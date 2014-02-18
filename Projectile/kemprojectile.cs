@@ -1,6 +1,6 @@
 using TAPI;
 
-namespace HallowedEnd {
+namespace TAPI.HallowedEnd {
     public class kemprojectile : ModProjectile {
         public kemprojectile(ModBase modbase, Projectile P) : base(modbase, P) { }
 

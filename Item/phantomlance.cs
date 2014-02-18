@@ -2,7 +2,7 @@ using System;
 using System.Timers;
 using TAPI;
 
-namespace HallowedEnd {
+namespace TAPI.HallowedEnd {
 	public class phantomlance : ModItem {
  
         public phantomlance(ModBase modbase, Item I) : base(modbase, I) { }
