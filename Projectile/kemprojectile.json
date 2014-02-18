@@ -1,0 +1,12 @@
+{
+   "code": "kemprojectile",
+   "size": [10,4],
+   "aiStyle": 1,
+   "timeLeft": 75,
+   "friendly": false,
+   "type": -1,
+   "hide": false,
+   "ranged": true,
+   "tileCollide": true,
+   "ignoreWater": true
+}

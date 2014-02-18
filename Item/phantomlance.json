@@ -1,0 +1,29 @@
+{
+    "code": "phantomlance",
+    "displayName": "Phantom-Lance",
+    "useStyle": 1,
+    "useSound": 42,
+    "soundDelay": 1,
+    "damage": 9999,
+    "maxStack": 1,
+    "autoReuse": true,
+    "melee": true,
+    "size": [50,50],
+    "useTime": 20,
+    "useAnimation": 20,
+    "value": [99,99,99,99],
+    "knockback": 6.0,
+    "rare": 8,
+    "toolTip": "The ultimate weapon, only for those who can use it.",
+    "recipes": [
+        {
+            "items": [
+                "1 Wood"
+            ],
+            "tiles": [
+                "Work Bench"
+            ],
+            "creates": 1
+        }
+    ]
+}
