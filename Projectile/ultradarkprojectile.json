@@ -1,4 +1,7 @@
 {
+   "code": "ultradarkprojectile",
+   "displayName": "Ultradark Laser Projectile",
+   "texture": "Projectile/ultradarkprojectile",
    "size": [10,10],
    "aiStyle": 24,
    "timeLeft": 300,
