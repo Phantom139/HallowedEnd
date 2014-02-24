@@ -1,6 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
 using TAPI;
 
-namespace TAPI.HallowedEnd {
+namespace HallowedEnd {
     public class kemprojectile : ModProjectile {
         public kemprojectile(ModBase modbase, Projectile P) : base(modbase, P) { }
 

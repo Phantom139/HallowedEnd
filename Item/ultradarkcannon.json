@@ -1,5 +1,6 @@
 {
     "displayName": "Ultradark Cannon",
+    "texture": "Item/ultradarkcannon",
     "useStyle": 5,
     "useSound": 33,
     "soundDelay": 1,
@@ -16,7 +17,7 @@
     "shoot": "HallowedEnd:ultradarkprojectile",
     "shootSpeed": 25,
     "rare": 6,
-    "toolTip": "Fires a pure beam of shadow energy, the pride of Lord Vardison.",
+    "tooltip": "Fires a pure beam of shadow energy, the pride of Lord Vardison.",
     "recipes": [
         {
             "items": {

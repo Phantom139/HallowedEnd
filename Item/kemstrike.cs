@@ -2,13 +2,14 @@ using System;
 using System.Timers;
 using TAPI;
 
-namespace TAPI.HallowedEnd {
+namespace HallowedEnd {
 	public class kemstrike : ModItem {
         private static System.Timers.Timer kemArrivalTimer;
  
         public kemstrike(ModBase modbase, Item I) : base(modbase, I) { }
  
         public override void UseItem(Player p) {
+            TConsole.visible = true;
             float X = ((float)Main.player[item.owner].position.X);
             float Y = ((float)Main.player[item.owner].position.Y)-10;
             kemArrivalTimer = new System.Timers.Timer(5000);

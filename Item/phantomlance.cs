@@ -1,7 +1,7 @@
 using System;
 using TAPI;
 
-namespace TAPI.HallowedEnd {
+namespace HallowedEnd {
 	public class phantomlance : ModItem {
  
         public phantomlance(ModBase modbase, Item I) : base(modbase, I) { }
