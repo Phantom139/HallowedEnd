@@ -1,0 +1,32 @@
+{
+    "displayName": "Ultradark Cannon",
+    "texture": "Item/ultradarkcannon",
+    "useStyle": 5,
+    "useSound": 33,
+    "soundDelay": 1,
+    "damage": 50,
+    "maxStack": 1,
+    "autoReuse": true,
+    "magic": true,
+    "mana": 1,
+    "size": [50,20],
+    "useTime": 4,
+    "useAnimation": 4,
+    "value": [0,50,0,0],
+    "knockback": 45.0,
+    "shoot": "HallowedEnd:ultradarkprojectile",
+    "shootSpeed": 25,
+    "rare": 6,
+    "tooltip": "Fires a pure beam of shadow energy, the pride of Lord Vardison.",
+    "recipes": [
+        {
+            "items": {
+                "Wood": 0
+            },
+            "tiles": [
+                "Work Bench"
+            ],
+            "creates": 1
+        }
+    ]
+}

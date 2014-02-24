@@ -1,7 +1,8 @@
 {
     "code": "kemstrike",
     "displayName": "KEM Strike",
-    "toolTip": "Unleash Devastation",
+    "texture": "Item/kemstrike",
+    "tooltip": "Unleash Devastation",
     "value": [99,0,0,0],
     "rare": 9,
     "size": [30,30],
@@ -13,7 +14,9 @@
     "recipes": [
         {
             "creates": 1,
-            "items": ["1 Wood"],
+            "items": {
+               "Wood": 1
+            },
             "tiles": ["Torch"]
         }
     ]

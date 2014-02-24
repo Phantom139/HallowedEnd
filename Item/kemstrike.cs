@@ -10,7 +10,7 @@ namespace HallowedEnd {
  
         public override void UseItem(Player p) {
             float X = ((float)Main.player[item.owner].position.X);
-            float Y = ((float)Main.player[item.owner].position.Y)-150;
+            float Y = ((float)Main.player[item.owner].position.Y)-10;
             kemArrivalTimer = new System.Timers.Timer(5000);
             kemArrivalTimer.Elapsed += (sender, args) => OnTimeComplete(sender, args, p, X, Y);
             kemArrivalTimer.Enabled = true;
