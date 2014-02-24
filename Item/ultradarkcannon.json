@@ -19,9 +19,9 @@
     "toolTip": "Fires a pure beam of shadow energy, the pride of Lord Vardison.",
     "recipes": [
         {
-            "items": [
-                "0 Wood"
-            ],
+            "items": {
+                "Wood": 0
+            },
             "tiles": [
                 "Work Bench"
             ],

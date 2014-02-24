@@ -17,9 +17,9 @@
     "toolTip": "The ultimate weapon, only for those who can use it.",
     "recipes": [
         {
-            "items": [
-                "0 Wood"
-            ],
+            "items": {
+                "Wood": 0
+            },
             "tiles": [
                 "Work Bench"
             ],

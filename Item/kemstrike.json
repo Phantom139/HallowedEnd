@@ -13,7 +13,9 @@
     "recipes": [
         {
             "creates": 1,
-            "items": ["1 Wood"],
+            "items": {
+               "Wood": 1
+            },
             "tiles": ["Torch"]
         }
     ]
