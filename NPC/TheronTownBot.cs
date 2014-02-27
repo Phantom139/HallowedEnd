@@ -53,9 +53,9 @@ namespace HallowedEnd {
 
         public override void SetupShop(Chest chest)  {
             int num = 0;
-            chest.item[num].SetDefaults("Platinum Bow");
+            chest.item[num].SetDefaults("HallowedEnd:torquebow");
             num++;
-            chest.item[num].SetDefaults("Jester's Arrow");
+            chest.item[num].SetDefaults("HallowedEnd:immulsionarrow");
             num++; 
         }
         public override bool ResetShop(Chest chest) { return true; }
