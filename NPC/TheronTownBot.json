@@ -1,0 +1,16 @@
+{
+    "code": "TheronTownBot",
+	"size": [30,49],
+	"npcSlots": 1,
+	"aiStyle": 7,
+	"animationType": 3,
+	"frameCount": 3,
+	"lifeMax": 250,	
+	"soundHit" : 1,
+	"soundKilled" : 1,
+	"friendly": true,
+	"townNPC": true,
+	"occupation": "Theron", /* npc title (ie Bob the *occupation*) */
+	"male": true, /* used for the king and queen statues */
+	"shop": true
+}
