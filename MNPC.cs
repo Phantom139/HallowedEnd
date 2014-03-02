@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using TAPI;
 
 namespace HallowedEnd {
-    [GlobalMod] public class MNPC : ModNPC { //GlobalMod is used for global NPCs, Items, and Projectiles
+    [GlobalMod] public class MNPC : ModNPC {
         //Phantom139: I'd rather save the npc.ai[] for important cases, so here's some predefs used by the ai for movement stuff
         float moveLockCounter;
         float tileLockCounter;
@@ -16,11 +16,17 @@ namespace HallowedEnd {
             moveLockCounter = 0.0f;
             tileLockCounter = 0.0f;
             genericLockCounter = 0.0f;
-        } //NOTE: this npc instance is null because this is a global ModNPC!
+        } //NOTE: this npc instance is null, and doesn't actually spawn, this is simply a template class...
 
-        public override List<int> EditSpawnPool(List<int> pool){ return pool; } //edit the npc spawning pool (remove npc entries, add them, etc.)
+        public override List<int> EditSpawnPool(List<int> pool) {
+            //Edit here...
+            return pool;
+        }
         
         //Generic NPC Move Function
+        //I have adapted some of this code from the old Obsidian mod, and have improved the code a bit for
+        // purposes of readability, usability, and overall performance.
+        // * You can use this code for an NPC so long as the NPC bases from MNPC instead of ModNPC.
         public void NPCDoMove(int type, float maxSpeed, float maxJump, float maxAccX, float maxAccY) {
             npc.TargetClosest(true);
             switch(type) {
