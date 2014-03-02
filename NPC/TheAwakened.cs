@@ -14,20 +14,20 @@ namespace HallowedEnd {
             npc.TargetClosest(true);
 
             if (Main.player[npc.target].position.X < npc.position.X) {
-                if (npc.velocity.X > -8) {
+                if (npc.velocity.X > -3) {
                     npc.velocity.X -= 0.22f;
                 }
             }
 
             if (Main.player[npc.target].position.X > npc.position.X) {
-                if (npc.velocity.X < 8) {
+                if (npc.velocity.X < 3) {
                     npc.velocity.X += 0.22f;
                 }
             }
 
             if (Main.player[npc.target].position.Y < npc.position.Y+5) {
                 if (npc.velocity.Y < 0) {
-                    if (npc.velocity.Y > -4) {
+                    if (npc.velocity.Y > -2) {
                         npc.velocity.Y -= 0.7f;
                     }
                 }
@@ -38,7 +38,7 @@ namespace HallowedEnd {
 
             if (Main.player[npc.target].position.Y > npc.position.Y+5) {
                 if (npc.velocity.Y > 0) {
-                    if (npc.velocity.Y < 4) {
+                    if (npc.velocity.Y < 2) {
                         npc.velocity.Y += 0.7f;
                     }
                 }

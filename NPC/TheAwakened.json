@@ -6,7 +6,7 @@
 	"npcSlots": 1,
 	"aiStyle": 3, //Custom AI
 	"animationType": 3,
-	"frameCount": 1,
+	"frameCount": 3,
 	"lifeMax": 2000,
 	"defense": 50,
 	"damage": 20,
