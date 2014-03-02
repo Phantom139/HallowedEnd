@@ -1,0 +1,28 @@
+{
+    "code": "ObeliskOfLight",
+	"displayName": "Obelisk of Light",
+	"size": [30,75],
+	"value": [0,0,10,0],
+	"npcSlots": 1,
+	//"aiStyle": 3,//Custom AI
+	"animationType": 3,
+	"frameCount": 1,
+	"lifeMax": 9001,
+	"defense": 100,
+	"damage": 9001,
+	"soundHit" : 1,
+	"soundKilled" : 1,
+	"knockbackResist": 100.0,
+
+	"drops": [
+		{
+			"item": "Iron Helmet",
+			"chance": 0.5
+		},
+		{
+			"item": "TemplateMod:ExampleItem",
+			"stack": 1,
+			"chance": 0.2
+		}
+	]
+}

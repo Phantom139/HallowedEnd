@@ -1,0 +1,23 @@
+{
+    "code": "nodsymbol",
+    "displayName": "NOD Symbol",
+    "texture": "Item/nodsymbol",
+    "tooltip": "The person who holds this high shall honor the brotherhood (No, you're just going to die...)",
+    "value": [99,0,0,0],
+    "rare": 9,
+    "size": [30,30],
+    "type": -1,
+    "useStyle": 4,
+    "useAnimation": 15,
+    "useTime": 10,
+    "consumable": true,
+    "recipes": [
+        {
+            "creates": 1,
+            "items": {
+               "Wood": 1
+            },
+            "tiles": ["Torch"]
+        }
+    ]
+}
