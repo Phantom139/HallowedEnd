@@ -26,7 +26,7 @@ namespace HallowedEnd {
             
             if (abilityCounter >= 90) {
                 abilityCounter = 0;
-                Vector2 tP = Main.player[npc.target].position;
+                Vector2 tP = new Vector2(Main.player[npc.target].position.X + (Main.player[npc.target].width/2), Main.player[npc.target].position.Y + (Main.player[npc.target].height/2));
                 Vector2 sP = new Vector2(npc.position.X, npc.position.Y - (npc.height/3));
                 Vector2 target = tP - sP;
                 target.Normalize();
