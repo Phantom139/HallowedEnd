@@ -1,6 +1,6 @@
 {
     "displayName": "Ultradark Cannon",
-    "texture": "Item/ultradarkcannon",
+    "texture": "Item/Magic/ultradarkcannon",
     "useStyle": 5,
     "useSound": 33,
     "soundDelay": 1,

@@ -1,7 +1,7 @@
 {
    "code": "kemprojectile",
    "displayName": "K.E.M. Strike Projectile",
-   "texture": "Projectile/kemprojectile",
+   "texture": "Projectile/Misc/kemprojectile",
    "size": [10,4],
    "aiStyle": 1,
    "timeLeft": 75,
