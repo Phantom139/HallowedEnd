@@ -8,7 +8,7 @@
 	"animationType": 3,
 	"frameCount": 3,
 	"lifeMax": 2000,
-	"defense": 50,
+	"defense": 30,
 	"damage": 20,
 	"soundHit" : 1,
 	"soundKilled" : 1,

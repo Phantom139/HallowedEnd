@@ -12,6 +12,8 @@ namespace HallowedEnd {
 
         public override void AI() {
             npc.TargetClosest(true);
+            npc.ai[0]++;
+            
             if (npc.ai[0] >= 90) {
                 npc.ai[0] = 0;
                 Vector2 tP = Main.player[npc.target].position;
