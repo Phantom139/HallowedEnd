@@ -1,7 +1,7 @@
 {
    "code": "nodsoldierlaser",
    "displayName": "Nod Soldier Laser Projectile",
-   "texture": "Projectile/nodsoldierlaser",
+   "texture": "Projectile/Boss/nodsoldierlaser",
    "size": [50,20],
    "aiStyle": 1,
    "timeLeft": 600,

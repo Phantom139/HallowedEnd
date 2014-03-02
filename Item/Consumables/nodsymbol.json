@@ -1,8 +1,8 @@
 {
-    "code": "kemstrike",
-    "displayName": "KEM Strike",
-    "texture": "Item/kemstrike",
-    "tooltip": "Unleash Devastation",
+    "code": "nodsymbol",
+    "displayName": "NOD Symbol",
+    "texture": "Item/Consumables/nodsymbol",
+    "tooltip": "The person who holds this high shall honor the brotherhood (No, you're just going to die...)",
     "value": [99,0,0,0],
     "rare": 9,
     "size": [30,30],

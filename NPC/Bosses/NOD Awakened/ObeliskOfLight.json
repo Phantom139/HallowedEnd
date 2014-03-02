@@ -8,9 +8,16 @@
 	"animationType": 3,
 	"frameCount": 3,
 	"lifeMax": 7500,
-	"defense": 100,
+	"defense": 40,
 	"damage": 20,
 	"soundHit" : 1,
 	"soundKilled" : 1,
-	"knockbackResist": 1.0
+	"knockbackResist": 1.0,
+ 
+	"drops": [
+		{
+			"item": "HallowedEnd:ObeliskCrystal",
+			"chance": 0.0005
+		}
+    ]
 }
