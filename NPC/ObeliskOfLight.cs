@@ -19,7 +19,7 @@ namespace HallowedEnd {
                 Vector2 target = tP - sP;
                 int pID = Defs.projectiles["HallowedEnd:nodsoldierlaser"].type;
                 int mahLazor = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (target.X*20), (target.Y*20), pID, 0, 0, npc.whoAmI);
-                Main.PlaySound(33, (int) npc.position.X, (int) npc.position.Y, 17);
+                Main.PlaySound(33, (int) npc.Center.X, (int) npc.Center.Y, 17);
             }
         }
     }

@@ -12,17 +12,5 @@
 	"damage": 9001,
 	"soundHit" : 1,
 	"soundKilled" : 1,
-	"knockbackResist": 100.0,
-
-	"drops": [
-		{
-			"item": "Iron Helmet",
-			"chance": 0.5
-		},
-		{
-			"item": "TemplateMod:ExampleItem",
-			"stack": 1,
-			"chance": 0.2
-		}
-	]
+	"knockbackResist": 1.0
 }

@@ -25,7 +25,7 @@ namespace HallowedEnd {
                 }
             }
 
-            if (Main.player[npc.target].position.Y < npc.position.Y+300) {
+            if (Main.player[npc.target].position.Y < npc.position.Y+5) {
                 if (npc.velocity.Y < 0) {
                     if (npc.velocity.Y > -4) {
                         npc.velocity.Y -= 0.7f;
@@ -36,7 +36,7 @@ namespace HallowedEnd {
                 }
             }
 
-            if (Main.player[npc.target].position.Y > npc.position.Y+300) {
+            if (Main.player[npc.target].position.Y > npc.position.Y+5) {
                 if (npc.velocity.Y > 0) {
                     if (npc.velocity.Y < 4) {
                         npc.velocity.Y += 0.7f;
