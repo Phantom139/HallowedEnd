@@ -7,54 +7,19 @@ using Microsoft.Xna.Framework;
 using TAPI;
 
 namespace HallowedEnd {
-    public class TheAwakened : ModNPC {
+    public class TheAwakened : MNPC {
         public TheAwakened(ModBase modBase, NPC n) : base(modBase, n){ }
 
         public override void AI() {
-            npc.TargetClosest(true);
-
-            if (Main.player[npc.target].position.X < npc.position.X) {
-                if (npc.velocity.X > -3) {
-                    npc.velocity.X -= 0.22f;
-                }
-            }
-
-            if (Main.player[npc.target].position.X > npc.position.X) {
-                if (npc.velocity.X < 3) {
-                    npc.velocity.X += 0.22f;
-                }
-            }
-
-            if (Main.player[npc.target].position.Y < npc.position.Y+5) {
-                if (npc.velocity.Y < 0) {
-                    if (npc.velocity.Y > -2) {
-                        npc.velocity.Y -= 0.7f;
-                    }
-                }
-                else {
-                    npc.velocity.Y -= 0.8f;
-                }
-            }
-
-            if (Main.player[npc.target].position.Y > npc.position.Y+5) {
-                if (npc.velocity.Y > 0) {
-                    if (npc.velocity.Y < 2) {
-                        npc.velocity.Y += 0.7f;
-                    }
-                }
-                else {
-                    npc.velocity.Y += 0.8f;
-                }
-            }
-
+            NPCDoMove(0, 2.0f, 6.8f, 0.22f, 0.22f);
             npc.ai[0]++;
 
             if (npc.ai[1] < 3) {
-                if (npc.ai[0] >= 500) {
+                if (npc.ai[0] >= 300) {
                     // Time to summon a deathy troll tower :D
                     int npcID = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, Defs.npcs["HallowedEnd:ObeliskOfLight"].type, 0);
                     // Poof Effect :D
-                    int dustID = Dust.NewDust(npc.Center, 30, 70, 60, 0.2f, 0.2f, 100, Color.Red, 1.2f);
+                    int dustID = Dust.NewDust(npc.Center, 30, 70, 60, 0.2f, 0.2f, 100, Color.Red, 3.2f);
                     //Maximum of 3 obelisks...
                     npc.ai[1]++;
                     npc.ai[0] = 0;
