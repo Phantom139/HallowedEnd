@@ -36,10 +36,12 @@ namespace HallowedEnd {
                 if (abilityCounter >= 90) {
                     abilityCounter = 0;
                     Vector2 tP = Main.player[npc.target].position;
-                    Vector2 sP = new Vector2(npc.position.X + (npc.width / 2), npc.position.Y + (npc.height / 2));
+                    Vector2 sP = new Vector2(npc.position.X, npc.position.Y - (npc.height/3));
                     Vector2 target = tP - sP;
+                    target.Normalize();
+                    target *= 15;
                     int pID = Defs.projectiles["HallowedEnd:nodsoldierlaser"].type;
-                    int mahLazor = Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (target.X*20), (target.Y*20), pID, 0, 0, npc.whoAmI);
+                    int mahLazor = Projectile.NewProjectile(sP.X, sP.Y, target.X, target.Y, pID, 20, 5, 0);
                     Main.PlaySound(33, (int) npc.position.X, (int) npc.position.Y, 17);
                 }
             }
