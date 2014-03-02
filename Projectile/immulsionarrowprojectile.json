@@ -7,6 +7,6 @@
 	"friendly": true,
 	"hostile": false,	
 	"tileCollide": true,
-	"damage": 20,
+	"damage": 40,
 	"ranged": true
 }
