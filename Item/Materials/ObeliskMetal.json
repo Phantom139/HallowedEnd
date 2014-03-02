@@ -1,0 +1,11 @@
+{
+    "displayName": "Obelisk Metal",
+    "texture": "Item/Materials/ObeliskMetal",
+    "maxStack": 99,
+    "autoReuse": false,
+    "melee": false,
+    "size": [30,30],
+    "value": [0,35,0,0],
+    "rare": 6,
+    "tooltip": "This cold metal is strengthened by the embedded light crystals."
+}

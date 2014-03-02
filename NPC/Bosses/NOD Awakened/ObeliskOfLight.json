@@ -18,6 +18,11 @@
 		{
 			"item": "HallowedEnd:ObeliskCrystal",
 			"chance": 0.0005
+		},
+		{
+			"item": "HallowedEnd:ObeliskMetal",
+			"stack": [5, 10],
+			"chance": 0.2
 		}
     ]
 }
