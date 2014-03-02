@@ -1,0 +1,16 @@
+{
+   "code": "nodsoldierlaser",
+   "displayName": "Nod Soldier Laser Projectile",
+   "texture": "Projectile/nodsoldierlaser",
+   "size": [50,20],
+   "aiStyle": 1,
+   "timeLeft": 600,
+   "damage": 25,
+   "friendly": false,
+   "hostile": true,
+   "type": -1,
+   "hide": false,
+   "magic": true,
+   "tileCollide": true,
+   "ignoreWater": true
+}

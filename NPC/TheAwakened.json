@@ -1,0 +1,28 @@
+{
+    "code": "TheAwakened",
+	"displayName": "The Awakened",
+	"size": [30,40],
+	"value": [0,0,10,0],
+	"npcSlots": 1,
+	"aiStyle": 3, //Custom AI
+	"animationType": 3,
+	"frameCount": 3,
+	"lifeMax": 2000,
+	"defense": 30,
+	"damage": 20,
+	"soundHit" : 1,
+	"soundKilled" : 1,
+	"knockbackResist": 1.0
+
+	//"drops": [
+	//	{
+	//		"item": "Iron Helmet",
+	//		"chance": 0.5
+	//	},
+	//	{
+	//		"item": "TemplateMod:ExampleItem",
+	//		"stack": 1,
+	//		"chance": 0.2
+	//	}
+	//]
+}

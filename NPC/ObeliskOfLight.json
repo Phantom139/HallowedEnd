@@ -1,0 +1,16 @@
+{
+    "code": "ObeliskOfLight",
+	"displayName": "Obelisk of Light",
+	"size": [30,75],
+	"value": [0,0,10,0],
+	"npcSlots": 1,
+	//"aiStyle": 3,//Custom AI
+	"animationType": 3,
+	"frameCount": 3,
+	"lifeMax": 7500,
+	"defense": 100,
+	"damage": 20,
+	"soundHit" : 1,
+	"soundKilled" : 1,
+	"knockbackResist": 1.0
+}
