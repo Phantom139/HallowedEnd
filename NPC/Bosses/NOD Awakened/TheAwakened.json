@@ -12,6 +12,7 @@
 	"damage": 20,
 	"soundHit" : 1,
 	"soundKilled" : 1,
+    "boss": true,
 	"knockbackResist": 1.0
 
 	//"drops": [
