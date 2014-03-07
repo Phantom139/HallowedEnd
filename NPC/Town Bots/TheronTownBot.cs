@@ -51,7 +51,7 @@ namespace HallowedEnd {
             return true;
         }
 
-        public override void SetupShop(Chest chest)  {
+        public override void SetupShop(Chest chest, ref int index)  {
             int num = 0;
             chest.item[num].SetDefaults("HallowedEnd:torquebow");
             num++;
@@ -60,8 +60,30 @@ namespace HallowedEnd {
         }
         public override bool ResetShop(Chest chest) { return true; }
 
-        public override void SetChatButtons(ref string button1, ref string button2)  {
-            button1 = "Shop";
+        public override void SetChatButtons(ref string[] buttons)  {
+            buttons[0] = "Shop";
+            buttons[1] = "Souls";
         }
+
+        /*
+        public override Action SetChatButtonAction(string[] buttons, int buttonIndex) {
+            if (buttonIndex == 0) {
+				return null;
+			}
+            else if (buttonIndex == 1) {
+                return () => {
+                   Player player = Main.player[Main.myPlayer];
+                   if(String.Compare(p.name, "Occult") != 0) {
+                       Main.npcChatText = "I WILL HAVE YOUR SOUL!!!";
+                       //Summon Soul Stealing Theron Invasion
+                   }
+                   else {
+                       Main.npcChatText = "Souls? Did I say I will have your soul? No, I couldn't have...";
+                   }
+                }
+            }
+            return null;
+        }
+        */
     }
 }
