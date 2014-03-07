@@ -4,7 +4,7 @@
 	"size": [30,40],
 	"value": [0,0,10,0],
 	"npcSlots": 1,
-	"aiStyle": 3, //Custom AI
+	"aiStyle": 26,
 	"animationType": 3,
 	"frameCount": 3,
 	"lifeMax": 2000,
@@ -13,17 +13,17 @@
 	"soundHit" : 1,
 	"soundKilled" : 1,
     "boss": true,
-	"knockbackResist": 1.0
+	"knockbackResist": 1.0,
 
-	//"drops": [
-	//	{
-	//		"item": "Iron Helmet",
-	//		"chance": 0.5
-	//	},
-	//	{
-	//		"item": "TemplateMod:ExampleItem",
-	//		"stack": 1,
-	//		"chance": 0.2
-	//	}
-	//]
+	"drops": [
+		{
+			"item": "HallowedEnd:ObeliskCrystal",
+			"chance": 0.35
+		},
+		{
+			"item": "HallowedEnd:ObeliskMetal",
+			"stack": [10, 25],
+			"chance": 0.1
+		}
+    ]
 }

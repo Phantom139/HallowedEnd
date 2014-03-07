@@ -17,7 +17,7 @@
 	"drops": [
 		{
 			"item": "HallowedEnd:ObeliskCrystal",
-			"chance": 0.0005
+			"chance": 0.05
 		},
 		{
 			"item": "HallowedEnd:ObeliskMetal",
