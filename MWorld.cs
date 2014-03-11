@@ -129,10 +129,20 @@ namespace HallowedEnd {
             switch(riftNightFlag) {
                 case (int)riftNightFlags.CNC:
                     // Do C&C Stuff
+                    if(counterTicks % 400 == 0) {
+                        if(Main.rand.Next(20) == 1) {
+                            int s = Main.rand.Next(Main.numPlayers);
+                            if(Main.player[s].active) {
+                                float X = ((float)Main.player[s].position.X)-200;
+                                float Y = ((float)Main.player[s].position.Y)-150;
+                                int npcID = NPC.NewNPC((int)X, (int)Y, Defs.npcs["HallowedEnd:Venom"].type, 0);
+                            }
+                        }
+                    }
                     if(counterTicks == 2500) {
                         //Here's where C&C Fun Times begin...
-                        if(true) { //Main.rand.Next(5) == 1) {
-                            Main.NewText("NOD has deployed their elite soldier 'The Awakened One' to the field.");
+                        if(Main.rand.Next(5) == 1) {
+                            Main.NewText("NOD has deployed their elite soldier 'The Awakened One' to the field.", 255, 0, 0);
                             foreach(Player p in Main.player) if(p.active) {
                                 //Spawn.
                                 float X = ((float)p.position.X);
