@@ -8,16 +8,17 @@ using TAPI;
 namespace HallowedEnd {
     [GlobalMod] public class MWorld : ModWorld {
         const int HALLOWEDENDRIFTEVENTS = 3;
-        enum riftNightFlags : int {
+        public enum riftNightFlags : int {
            NONE = 0,
            CNC = 1,
            GOW = 2,
            HELLRAIN = 3
         };
     
-        bool isRiftNight;
+        public bool isRiftNight;
+        public int riftNightFlag;
+        
         int counterTicks;
-        int riftNightFlag;
         bool dnFlag;
         
         bool initFlag;
@@ -128,6 +129,19 @@ namespace HallowedEnd {
             switch(riftNightFlag) {
                 case (int)riftNightFlags.CNC:
                     // Do C&C Stuff
+                    if(counterTicks == 2500) {
+                        //Here's where C&C Fun Times begin...
+                        if(true) { //Main.rand.Next(5) == 1) {
+                            Main.NewText("NOD has deployed their elite soldier 'The Awakened One' to the field.");
+                            foreach(Player p in Main.player) if(p.active) {
+                                //Spawn.
+                                float X = ((float)p.position.X);
+                                float Y = ((float)p.position.Y)-150;
+                                int npcID = NPC.NewNPC((int)X, (int)Y, Defs.npcs["HallowedEnd:TheAwakened"].type, 0);
+                                break;
+                            }
+                        }
+                    }
                     break;
                     
                 case (int)riftNightFlags.GOW:
@@ -140,7 +154,7 @@ namespace HallowedEnd {
                         foreach(Player p in Main.player) if(p.active) {
                             pos = p.position;
                             dir.X = Main.rand.Next(-20, 21);
-                            dir.Y = 40;
+                            dir.Y = 100; //It's booking it :)
                             dir.Normalize();
                             int projo = Projectile.NewProjectile(pos.X, (pos.Y - (float)2500), dir.X*2, dir.Y*5, 12, 20, 5, 0);
                             Main.projectile[projo].timeLeft = 1200;

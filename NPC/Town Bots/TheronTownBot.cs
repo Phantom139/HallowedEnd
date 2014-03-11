@@ -44,6 +44,9 @@ namespace HallowedEnd {
             }
             string guidesName = NPC.AnyNPCs("Guide") ? Main.chrName[22] : null;
             if (guidesName != null && Main.rand.Next(4) == 0){ text = "We therons don't approve much of " + guidesName + ". We make voodoo dolls of him but they keep getting stolen.."; }
+
+            if(((MWorld)modBase.modWorld).riftNightFlag == (int)MWorld.riftNightFlags.HELLRAIN) { text = "Welp, I'm afraid this is it.. Fire is raining from the sky, so it's time for me to go and hide underground."; }
+
             return text;
         }
         
