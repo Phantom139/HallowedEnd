@@ -1,4 +1,6 @@
 using System;
+
+using Terraria;
 using TAPI;
 using Microsoft.Xna.Framework;
 

@@ -1,5 +1,7 @@
 using System;
 using System.Timers;
+
+using Terraria;
 using TAPI;
 
 namespace HallowedEnd {
@@ -8,13 +10,15 @@ namespace HallowedEnd {
  
         public kemstrike(ModBase modbase, Item I) : base(modbase, I) { }
  
-        public override void UseItem(Player p) {
+        public override bool? UseItem(Player p) {
             float X = ((float)Main.player[item.owner].position.X);
             float Y = ((float)Main.player[item.owner].position.Y)-10;
             kemArrivalTimer = new System.Timers.Timer(5000);
             kemArrivalTimer.Elapsed += (sender, args) => OnTimeComplete(sender, args, p, X, Y);
             kemArrivalTimer.Enabled = true;
             Main.NewText("KEM STRIKE IN 5 SECONDS.....", 255, 0, 0, true);
+            
+            return true;
         }
         
         public void OnTimeComplete(object src, ElapsedEventArgs a, Player p, float X, float Y) {
