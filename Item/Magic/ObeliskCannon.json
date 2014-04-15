@@ -1,0 +1,35 @@
+{
+    "displayName": "Obelisk Cannon",
+    "texture": "Item/Magic/ObeliskCannon",
+    "code": "ObeliskCannon",
+    "useStyle": 5,
+    "useSound": 33,
+    "soundDelay": 1,
+    "damage": 50,
+    "maxStack": 1,
+    "autoReuse": false,
+    "magic": true,
+    "mana": 15,
+    "size": [40,15],
+    "useTime": 75,
+    "useAnimation": 75,
+    "value": [0,50,0,0],
+    "knockback": 45.0,
+    "shoot": 100,
+    "shootSpeed": 75,
+    "rare": 8,
+    "tooltip": "A miniature of the Nod Obelisk, designed for powerful laser fire",
+    "recipes": [
+        {
+            "items": {
+                "HallowedEnd:nodsymbol": 1,
+                "HallowedEnd:ObeliskCrystal": 3,
+                "HallowedEnd:ObeliskMetal": 25
+            },
+            "tiles": [
+                "Work Bench"
+            ],
+            "creates": 1
+        }
+    ]
+}

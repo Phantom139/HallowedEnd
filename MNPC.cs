@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 
+using Terraria;
 using TAPI;
 
 namespace HallowedEnd {
@@ -18,7 +19,7 @@ namespace HallowedEnd {
             genericLockCounter = 0.0f;
         } //NOTE: this npc instance is null, and doesn't actually spawn, this is simply a template class...
 
-        public override List<int> EditSpawnPool(List<int> pool) {
+        public override List<int> EditSpawnPool(int x, int y, List<int> pool, Player p) {
             //Edit here...
             return pool;
         }

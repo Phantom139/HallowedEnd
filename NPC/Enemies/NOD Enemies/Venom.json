@@ -1,0 +1,23 @@
+{
+    "code": "Venom",
+	"displayName": "Venom VTOL Craft",
+	"size": [50,20],
+	"value": [0,0,10,0],
+	"npcSlots": 1,
+	//"aiStyle": 3,//Custom AI
+	"animationType": 1,
+	"frameCount": 1,
+	"lifeMax": 450,
+	"defense": 35,
+	"damage": 20,
+	"soundHit" : 1,
+	"soundKilled" : 1,
+	"knockbackResist": 1.0,
+ 
+	"drops": [
+		{
+			"item": "HallowedEnd:nodsymbol",
+			"chance": 0.35
+		}
+    ]
+}
