@@ -14,6 +14,8 @@ namespace HallowedEnd {
         float maxSpeed = 6f;
         float maxAccX = 0.22f;
         float maxAccY = 0.8f;
+        
+        bool leftRight = false; //Left
     
         public Venom(ModBase modBase, NPC n) : base(modBase, n) {
             abilityCounter = 0;
@@ -37,17 +39,26 @@ namespace HallowedEnd {
                 Main.projectile[bullet].hostile = true;
                 if(abilityCounter >= 115) {
                     abilityCounter = 0;
+                    if(Main.rand.Next(3) == 1) {
+                        leftRight = !leftRight;
+                    }
                 }
             }
             
-            if (Main.player[npc.target].position.X < npc.position.X - 200) {
-                if (npc.velocity.X > -(maxSpeed)) {
-                    npc.velocity.X -= maxAccX;
+            //Prefer Left
+            if(leftRight) {
+                if (Main.player[npc.target].position.X < npc.position.X - 400) {
+                    if (npc.velocity.X > -(maxSpeed)) {
+                        npc.velocity.X -= maxAccX;
+                    }
                 }
             }
-            if (Main.player[npc.target].position.X > npc.position.X + 200) {
-                if (npc.velocity.X < maxSpeed) {
-                    npc.velocity.X += maxAccX;
+            //Prefer Right
+            else {
+                if (Main.player[npc.target].position.X > npc.position.X + 400) {
+                    if (npc.velocity.X < maxSpeed) {
+                        npc.velocity.X += maxAccX;
+                    }
                 }
             }
             if (Main.player[npc.target].position.Y < npc.position.Y + 250) {
