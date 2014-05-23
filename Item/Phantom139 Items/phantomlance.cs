@@ -14,9 +14,6 @@ namespace HallowedEnd {
                return false;
             }
             //
-            Main.NewText("Phantom139 lifts his great sword and the time gateway reverses.", 255, 0, 0, true);
-            if(Main.netMode != 1){ Main.dayTime = !Main.dayTime; }
-            if(Main.netMode != 2){ Main.PlaySound(2, (int)p.Center.X, (int)p.Center.Y, 37); }
             
             return true;
         }

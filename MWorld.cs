@@ -36,6 +36,8 @@ namespace HallowedEnd {
             if(!initFlag) {
                 Main.NewText("World Loaded: Welcome to Hallowed End Mod [Phantom139].", 255, 0, 0, true);
             }
+            //Enable chat.
+            Main.allowChat = true;
         } //Called when the world is initialized.
   
 		public override void PostUpdate() {
@@ -130,8 +132,8 @@ namespace HallowedEnd {
             switch(riftNightFlag) {
                 case (int)riftNightFlags.CNC:
                     // Do C&C Stuff
-                    if(counterTicks % 400 == 0) {
-                        if(Main.rand.Next(20) == 1) {
+                    if(counterTicks % 350 == 0) {
+                        if(Main.rand.Next(15) == 1) {
                             int s = Main.rand.Next(Main.numPlayers);
                             if(Main.player[s].active) {
                                 float X = ((float)Main.player[s].position.X)-200;
