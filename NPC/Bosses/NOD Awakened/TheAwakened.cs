@@ -24,9 +24,16 @@ namespace HallowedEnd {
             if (obeliskCounter < 3) {
                 if (abilityCounter >= 300) {
                     // Time to summon a deathy troll tower :D
-                    int npcID = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, Defs.npcs["HallowedEnd:ObeliskOfLight"].type, 0);
+                    if(Main.netMode != 1) {
+                        int npcID = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, Defs.npcs["HallowedEnd:ObeliskOfLight"].type, 0);
+                        if (Main.netMode == 2) {
+                            NetMessage.SendData(23, -1, -1, "", npcID, 0.0f, 0.0f, 0.0f, 0);
+                        }
+                    }
                     // Poof Effect :D
-                    int dustID = Dust.NewDust(npc.Center, 30, 70, 60, 0.2f, 0.2f, 100, Color.Red, 3.2f);
+                    if(Main.netMode != 2) {
+                        int dustID = Dust.NewDust(npc.Center, 30, 70, 60, 0.0f, 1.0f, 100, Color.Red, 3.2f);
+                    }
                     //Maximum of 3 obelisks...
                     obeliskCounter++;
                     abilityCounter = 0;
@@ -42,8 +49,12 @@ namespace HallowedEnd {
                     target.Normalize();
                     target *= 15;
                     int pID = Defs.projectiles["HallowedEnd:nodsoldierlaser"].type;
-                    int mahLazor = Projectile.NewProjectile(sP.X, sP.Y, target.X, target.Y, pID, 20, 5, 0);
-                    Main.PlaySound(33, (int) npc.position.X, (int) npc.position.Y, 17);
+                    if(Main.netMode != 1) {
+                        int mahLazor = Projectile.NewProjectile(sP.X, sP.Y, target.X, target.Y, pID, 20, 5, 0);
+                    }
+                    if(Main.netMode != 2) {
+                        Main.PlaySound(33, (int) npc.position.X, (int) npc.position.Y, 17);
+                    }
                 }
             }
         }

@@ -11,9 +11,9 @@ namespace HallowedEnd {
     public class Venom : MNPC {
         int abilityCounter;
         
-        float maxSpeed = 6f;
-        float maxAccX = 0.22f;
-        float maxAccY = 0.8f;
+        float maxSpeed = 2f;
+        float maxAccX = 0.12f;
+        float maxAccY = 0.3f;
         
         bool leftRight = false; //Left
     
@@ -26,7 +26,7 @@ namespace HallowedEnd {
             abilityCounter++;
             
             //This chopper likes to sit away from the victim and fire off machine guns
-            if(abilityCounter > 100) {
+            if(abilityCounter > 107) {
                 //Fire mah machine gun
                 Vector2 tP = new Vector2(Main.player[npc.target].position.X + (Main.player[npc.target].width/2), Main.player[npc.target].position.Y + (Main.player[npc.target].height/2));
                 Vector2 sP = new Vector2(npc.position.X, npc.position.Y - (npc.height/3));
@@ -34,9 +34,11 @@ namespace HallowedEnd {
                 target.Normalize();
                 target *= 15;
                 int pID = 104; //Defs.projectiles["HallowedEnd:nodsoldierlaser"].type;
-                int bullet = Projectile.NewProjectile(sP.X, sP.Y, target.X, target.Y, pID, 10, 5, 0);
-                Main.projectile[bullet].friendly = false;
-                Main.projectile[bullet].hostile = true;
+                if(Main.netMode != 1) {
+                    int bullet = Projectile.NewProjectile(sP.X, sP.Y, target.X, target.Y, pID, 10, 5, 0);
+                    Main.projectile[bullet].friendly = false;
+                    Main.projectile[bullet].hostile = true;
+                }
                 if(abilityCounter >= 115) {
                     abilityCounter = 0;
                     if(Main.rand.Next(3) == 1) {

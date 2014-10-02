@@ -14,7 +14,7 @@
     "useTime": 75,
     "useAnimation": 75,
     "value": [0,50,0,0],
-    "knockback": 45.0,
+    "knockback": 3.0,
     "shoot": 100,
     "shootSpeed": 75,
     "rare": 8,

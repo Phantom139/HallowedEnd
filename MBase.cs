@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
@@ -9,14 +10,19 @@ using TAPI;
 
 namespace HallowedEnd {
     public class MBase : TAPI.ModBase { //MBase can be any name
-        public override void OnLoad(){} //Called when the mod is first loaded. 
-        public override void OnUnload(){} //Called when the mod is unloaded.
-        public override void OnAllModsLoaded(){} //Called when all mods are loaded.
+        public override void OnLoad(){ } //Called when the mod is first loaded.
+        public override void OnUnload(){ } //Called when the mod is unloaded.
+		public override void OnAllModsLoaded() { } //Called when all mods are loaded.
+		public override void PreGameDraw(SpriteBatch sb) { } //Called before all game drawing.
         public override void PostGameDraw(SpriteBatch sb) { } //Called after all game drawing is finished.
-        public override void ChooseTrack(ref string current){} //Called when the music track updates.
+
+        public override void ChooseTrack(ref string current) { } //Called when the music track updates.
+
+		public override void OptionChanged(Option option) { } // Called when leaving the options page on all options for this mod with notify (ie recently changed)
+		public override List<string> OptionList(Option option) { return null; } // Called on Dynamic options for this mod to fill possibleValues.
 
         public override object OnModCall(TAPI.ModBase mod, params object[] args) { return base.OnModCall(mod, args);  } //Called when another mod calls this on your mod. (used for inter-mod communicating)
-        public override void NetReceive(int msgType, BinBuffer bb){} //Used to handle networking.
+        public override void NetReceive(int msgType, BinBuffer bb) { } //Used to handle networking.
         
         //Override Chat Commands
         public override bool ChatCommand(Player p, string command, string arguments) {

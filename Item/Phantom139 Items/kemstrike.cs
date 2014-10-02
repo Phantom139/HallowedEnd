@@ -29,7 +29,9 @@ namespace HallowedEnd {
             float VelX = (float)0;
             float VelY = (float)-1;
             int kemid = Defs.projectiles["HallowedEnd:kemprojectile"].type;
-            int SpawnKem = Projectile.NewProjectile(X, Y, VelX, VelY, kemid, 0, 0, p.whoAmI);
+            if(Main.netMode != 1) {
+                int SpawnKem = Projectile.NewProjectile(X, Y, VelX, VelY, kemid, 0, 0, p.whoAmI);
+            }
             kemArrivalTimer.Enabled = false;
         }
     }
