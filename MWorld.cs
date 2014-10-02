@@ -8,12 +8,12 @@ using TAPI;
 
 namespace HallowedEnd {
     [GlobalMod] public class MWorld : ModWorld {
-        const int HALLOWEDENDRIFTEVENTS = 3;
+        const int HALLOWEDENDRIFTEVENTS = 2;//3;
         public enum riftNightFlags : int {
            NONE = 0,
            CNC = 1,
            GOW = 2,
-           HELLRAIN = 3
+           //HELLRAIN = 3
         };
     
         public bool isRiftNight;
@@ -83,9 +83,9 @@ namespace HallowedEnd {
                         Main.NewText("The dimensional breach closes and the traces of the locust vanish...", 255, 0, 0, true);
                         break;
 
-                    case (int)riftNightFlags.HELLRAIN:
-                        Main.NewText("The dimensional breach closes and the rain of fire ends...", 255, 0, 0, true);
-                        break;
+                    //case (int)riftNightFlags.HELLRAIN:
+                    //    Main.NewText("The dimensional breach closes and the rain of fire ends...", 255, 0, 0, true);
+                    //    break;
                 }
             }
             isRiftNight = false;
@@ -118,27 +118,32 @@ namespace HallowedEnd {
                     riftNightFlag = (int)riftNightFlags.GOW;
                     break;
                     
-                case 3:
-                    //Hell-Rain: Very Bad Thingy :D
-                    Main.NewText("You hear a loud explosion as the rift collapses over a burning star and a wave of fire begins to screech down.", 255, 0, 0, true);
-                    riftNightFlag = (int)riftNightFlags.HELLRAIN;
-                    break;
+                //case 3:
+                //    //Hell-Rain: Very Bad Thingy :D
+                //    Main.NewText("You hear a loud explosion as the rift collapses over a burning star and a wave of fire begins to screech down.", 255, 0, 0, true);
+                //    riftNightFlag = (int)riftNightFlags.HELLRAIN;
+                //    break;
             }
         }
 
         public void doRiftNightTasks() {
-            Vector2 dir, pos;
-        
             switch(riftNightFlag) {
                 case (int)riftNightFlags.CNC:
                     // Do C&C Stuff
                     if(counterTicks % 350 == 0) {
                         if(Main.rand.Next(15) == 1) {
-                            int s = Main.rand.Next(Main.numPlayers);
-                            if(Main.player[s].active) {
-                                float X = ((float)Main.player[s].position.X)-200;
-                                float Y = ((float)Main.player[s].position.Y)-150;
-                                int npcID = NPC.NewNPC((int)X, (int)Y, Defs.npcs["HallowedEnd:Venom"].type, 0);
+                            if (NPC.CountNPCS("HallowedEnd:Venom") < 4) {
+                                int s = Main.rand.Next(Main.numPlayers);
+                                if(Main.player[s].active) {
+                                    float X = ((float)Main.player[s].position.X)-200;
+                                    float Y = ((float)Main.player[s].position.Y)-150;
+                                    if(Main.netMode != 1) {
+                                       int npcID = NPC.NewNPC((int)X, (int)Y, Defs.npcs["HallowedEnd:Venom"].type, 0);
+                                       if (Main.netMode == 2) {
+                                           NetMessage.SendData(23, -1, -1, "", npcID, 0.0f, 0.0f, 0.0f, 0);
+                                       }
+                                    }
+                                }
                             }
                         }
                     }
@@ -150,7 +155,12 @@ namespace HallowedEnd {
                                 //Spawn.
                                 float X = ((float)p.position.X);
                                 float Y = ((float)p.position.Y)-150;
-                                int npcID = NPC.NewNPC((int)X, (int)Y, Defs.npcs["HallowedEnd:TheAwakened"].type, 0);
+                                if(Main.netMode != 1) {
+                                   int npcID = NPC.NewNPC((int)X, (int)Y, Defs.npcs["HallowedEnd:TheAwakened"].type, 0);
+                                   if (Main.netMode == 2) {
+                                      NetMessage.SendData(23, -1, -1, "", npcID, 0.0f, 0.0f, 0.0f, 0);
+                                   }
+                                }
                                 break;
                             }
                         }
@@ -159,41 +169,23 @@ namespace HallowedEnd {
                     
                 case (int)riftNightFlags.GOW:
                     // Do GoW Stuff
-                    break;
-                    
-                case (int)riftNightFlags.HELLRAIN:
-                    // Do Firestorm Stuff
-                    if(counterTicks % 200 == 0) {
-                        foreach(Player p in Main.player) if(p.active) {
-                            pos = p.position;
-                            dir.X = Main.rand.Next(-20, 21);
-                            dir.Y = 100; //It's booking it :)
-                            dir.Normalize();
-                            int projo = Projectile.NewProjectile(pos.X, (pos.Y - (float)2500), dir.X*2, dir.Y*5, 12, 20, 5, 0);
-                            Main.projectile[projo].timeLeft = 1200;
-                            Main.projectile[projo].friendly = false;
-                            Main.projectile[projo].hostile = true;
-                        }
-                    }
-                    if(counterTicks % 50 == 0) {
-                        //Spawn another wave of fire near all surface players
-                        foreach(Player p in Main.player) if(p.active) {
-                            pos = p.position;
-                            //if(pos.Y <= Main.worldSurface) {
-                                for(int i = 0; i < 3; i++) {
-                                    dir.X = Main.rand.Next(-5, 6);
-                                    dir.Y = 5;
-                                    dir.Normalize();
-                                   
-                                    int projo = Projectile.NewProjectile(pos.X, (pos.Y - (float)1500), dir.X*2, dir.Y*5, Main.rand.Next(95, 97), 20, 5, 0);
-                                    Main.projectile[projo].timeLeft = 600;
-                                    Main.projectile[projo].friendly = false;
-                                    Main.projectile[projo].hostile = true;
+                    if(counterTicks == 500) {
+                       //The theron town bot arrives :)
+                       foreach(Player p in Main.player) if(p.active) {
+                          //if (!NPC.AnyNPCs("HallowedEnd:TheronTownBot")) {
+                          if (NPC.CountNPCS("HallowedEnd:TheronTownBot") <= 0) {
+                             Main.NewText("A Theron Guard approaches your area and is pleased with the construction of your 'base'.", 255, 0, 0);
+                             if(Main.netMode != 1) {
+                                int npcID = NPC.NewNPC((int)p.Center.X, (int)p.Center.Y - 70, Defs.npcs["HallowedEnd:TheronTownBot"].type, 0);
+                                if (Main.netMode == 2) {
+                                   NetMessage.SendData(23, -1, -1, "", npcID, 0.0f, 0.0f, 0.0f, 0);
                                 }
-                            //}
-                        }
+                             }
+                          }
+                       }
                     }
                     break;
+
             }
         }
     }

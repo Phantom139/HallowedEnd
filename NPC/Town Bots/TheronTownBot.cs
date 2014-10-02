@@ -10,17 +10,19 @@ using TAPI;
 namespace HallowedEnd {
     public class TheronTownBot : ModNPC {
         public TheronTownBot(ModBase modBase, NPC n) : base(modBase, n){ }
-
-        public override void PostNPCLoot() {
-            Gore.NewGore(npc.position, npc.velocity, Defs.gores["HallowedEnd:TheronNPCHead"], 1f);
-            Gore.NewGore(npc.position, npc.velocity, Defs.gores["HallowedEnd:TheronNPCBody"], 1f);
-            Gore.NewGore(npc.position, npc.velocity, Defs.gores["HallowedEnd:TheronNPCLeg"], 1f);
-            Gore.NewGore(npc.position, npc.velocity, Defs.gores["HallowedEnd:TheronNPCLeg"], 1f);
-            for (int m = 0; m < 20; m++) {
-                int dustID = Dust.NewDust(npc.position, npc.width, npc.height, 5, npc.velocity.X * 0.2f, npc.velocity.Y * 0.2f, 100, Color.White, m % 2 == 0 ? 3f : 1f);
-                if (m % 2 == 0) { Main.dust[dustID].noGravity = true; }
-            }
-        }
+        
+		public override void HitEffect(int hitDirection, double damage, bool isDead) {
+			for (int m = 0; m < (isDead ? 20 : 5); m++) {
+				int dustID = Dust.NewDust(npc.position, npc.width, npc.height, 5, npc.velocity.X * 0.2f, npc.velocity.Y * 0.2f, 100, Color.White, isDead && m % 2 == 0 ? 3f : 1f);
+				if (isDead && m % 2 == 0) { Main.dust[dustID].noGravity = true; }
+			}
+			if (isDead) {
+               Gore.NewGore(npc.position, npc.velocity, Defs.gores["HallowedEnd:TheronNPCHead"], 1f);
+               Gore.NewGore(npc.position, npc.velocity, Defs.gores["HallowedEnd:TheronNPCBody"], 1f);
+               Gore.NewGore(npc.position, npc.velocity, Defs.gores["HallowedEnd:TheronNPCLeg"], 1f);
+               Gore.NewGore(npc.position, npc.velocity, Defs.gores["HallowedEnd:TheronNPCLeg"], 1f);
+			}
+		}
 
         public override string SetName() {
             int rand = Main.rand.Next(4);
@@ -46,7 +48,7 @@ namespace HallowedEnd {
             string guidesName = NPC.AnyNPCs("Guide") ? Main.chrName[22] : null;
             if (guidesName != null && Main.rand.Next(4) == 0){ text = "We therons don't approve much of " + guidesName + ". We make voodoo dolls of him but they keep getting stolen.."; }
 
-            if(((MWorld)modBase.modWorld).riftNightFlag == (int)MWorld.riftNightFlags.HELLRAIN) { text = "Welp, I'm afraid this is it.. Fire is raining from the sky, so it's time for me to go and hide underground."; }
+            if(((MWorld)modBase.modWorld).riftNightFlag == (int)MWorld.riftNightFlags.CNC && Main.rand.Next(4) == 0) { text = "I once saw this wierd tower thingy with a red crystal on it, It started glowing violently, so I ran away."; }
 
             return text;
         }
@@ -69,14 +71,13 @@ namespace HallowedEnd {
             buttons[1] = "Souls";
         }
 
-        /*
         public override Action SetChatButtonAction(string[] buttons, int buttonIndex) {
             if (buttonIndex == 0) {
 				return null;
 			}
             else if (buttonIndex == 1) {
                 return () => {
-                   Player player = Main.player[Main.myPlayer];
+                   Player p = Main.player[Main.myPlayer];
                    if(String.Compare(p.name, "Occult") != 0) {
                        Main.npcChatText = "I WILL HAVE YOUR SOUL!!!";
                        //Summon Soul Stealing Theron Invasion
@@ -84,10 +85,10 @@ namespace HallowedEnd {
                    else {
                        Main.npcChatText = "Souls? Did I say I will have your soul? No, I couldn't have...";
                    }
-                }
+                };
             }
             return null;
         }
-        */
+
     }
 }

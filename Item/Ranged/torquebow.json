@@ -6,7 +6,7 @@
 	"rare": 7,
 	"tooltip": "High-Powered Advanced weapon that fires explosive immulsion arrows.",
 	"useStyle": 5,
-	"useAnimation": 30,
+	"useAnimation": 15,
 	"useTime": 100,
 	"damage": 40,
 	"knockBack": 3,

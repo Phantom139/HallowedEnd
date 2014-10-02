@@ -20,9 +20,11 @@ namespace HallowedEnd {
             abilityCounter++;
             
             if(abilityCounter >= 45) {
-               //create red "charge" dust
-               Vector2 chargePos = new Vector2(npc.position.X, npc.position.Y - (npc.height/3));
-               int dust1 = Dust.NewDust(chargePos, 20, 20, 60, 0.0f, 1.0f, 100, Color.Red, 1.2f);
+                //create red "charge" dust
+                Vector2 chargePos = new Vector2(npc.position.X, npc.position.Y - (npc.height/3));
+                if(Main.netMode != 2) {
+                    int dust1 = Dust.NewDust(chargePos, 20, 20, 60, 0.0f, 1.0f, 100, Color.Red, 1.2f);
+                }
             }
             
             if (abilityCounter >= 90) {
@@ -33,8 +35,12 @@ namespace HallowedEnd {
                 target.Normalize();
                 target *= 15;
                 int pID = 100; //Defs.projectiles["HallowedEnd:nodsoldierlaser"].type;
-                int mahLazor = Projectile.NewProjectile(sP.X, sP.Y, target.X, target.Y, pID, 20, 5, 0);
-                Main.PlaySound(33, (int) npc.position.X, (int) npc.position.Y, 17);
+                if(Main.netMode != 1) {
+                    int mahLazor = Projectile.NewProjectile(sP.X, sP.Y, target.X, target.Y, pID, 20, 5, 0);
+                }
+                if(Main.netMode != 2) {
+                    Main.PlaySound(33, (int) npc.position.X, (int) npc.position.Y, 17);
+                }
             }
         }
     }
